@@ -1,0 +1,196 @@
+/* ==========================================================================
+   Admin Panel Responsive CSS
+   Project: Hotel Booking System
+   Author: Your Name
+   ========================================================================== */
+
+/* This file contains styles specifically for responsive adjustments.
+   It should be loaded AFTER the main admin.css file.
+   It assumes CSS variables from admin.css (:root) are already available.
+*/
+
+/* Responsive Design
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .admin-sidebar {
+    width: 240px; /* Sidebar lebih ramping */
+  }
+
+  .admin-content-wrapper {
+    margin-left: 240px; /* Sesuaikan margin konten utama */
+  }
+
+  .admin-main-content {
+    /* Deprecated if admin-content-wrapper is used for layout */
+    /* margin-left: 240px; */ /* Disesuaikan dengan lebar sidebar baru */
+    padding: var(--spacing-lg);
+  }
+
+  .dashboard-row {
+    flex-direction: column; /* Stack cards di dashboard */
+    gap: 1.5rem;
+  }
+
+  .admin-navbar {
+    padding: 1rem 0.7rem; /* Padding navbar lebih kecil */
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    flex-direction: column; /* Layout utama menjadi kolom */
+  }
+
+  .admin-content-wrapper {
+    margin-left: 0; /* Hapus margin kiri karena sidebar di atas */
+    padding: var(--spacing-md);
+  }
+
+  .admin-sidebar {
+    width: 100%; /* Sidebar mengambil lebar penuh */
+    height: auto;
+    min-height: unset;
+    position: relative; /* Ubah dari fixed menjadi relative */
+    border-right: none;
+    border-bottom: 1px solid var(--admin-dark); /* Garis bawah sebagai pemisah */
+    padding: var(--spacing-md); /* Kurangi padding sidebar */
+    box-shadow: none; /* Hapus shadow jika tidak diperlukan */
+  }
+
+  .sidebar {
+    /* Styles untuk elemen .sidebar di dalam .admin-sidebar */
+    position: relative; /* Override fixed position */
+    width: 100%;
+    min-height: unset;
+    border-right: none;
+    border-bottom: none; /* Jika .admin-sidebar sudah punya border-bottom */
+    box-shadow: none;
+    padding: var(--spacing-sm) 0; /* Atur padding internal .sidebar */
+  }
+
+  .sidebar-header h4:after {
+    width: 30px; /* Perkecil underline di header sidebar */
+  }
+
+  .nav-link {
+    gap: var(--spacing-sm); /* Kurangi gap di nav link */
+    padding: var(--spacing-xs) var(--spacing-sm); /* Kurangi padding nav link */
+  }
+
+  .admin-main-content {
+    /* Deprecated if admin-content-wrapper is used for layout */
+    margin-left: 0;
+    padding: var(--spacing-md);
+  }
+
+  .admin-content {
+    /* Konten utama di dalam .admin-content-wrapper */
+    padding: var(--spacing-md); /* Kurangi padding konten */
+  }
+
+  .admin-navbar {
+    flex-direction: column; /* Navbar menjadi kolom */
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md); /* Sesuaikan padding navbar */
+  }
+
+  .navbar-brand {
+    font-size: 1.3rem; /* Perkecil font brand */
+  }
+
+  .navbar-menu {
+    width: 100%; /* Menu mengambil lebar penuh */
+    justify-content: space-between; /* Sebar item menu */
+    gap: var(--spacing-md);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Ukuran kartu statistik lebih kecil */
+    gap: var(--spacing-md);
+  }
+
+  .stat-card {
+    padding: var(--spacing-md) var(--spacing-sm);
+    gap: var(--spacing-sm);
+  }
+  .stat-icon {
+    font-size: 2rem;
+  }
+  .stat-info h3 {
+    font-size: 1.8rem;
+  }
+
+  .room-detail-section {
+    padding: var(--spacing-md);
+  }
+
+  .room-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Gambar galeri lebih kecil */
+    gap: var(--spacing-sm);
+    justify-content: center;
+  }
+  .room-gallery img {
+    height: 80px;
+  }
+
+  .room-info-table,
+  .admin-table, /* Terapkan juga ke admin-table umum */
+  .booking-history-table {
+    display: block; /* Membuat tabel bisa di-scroll horizontal */
+    overflow-x: auto;
+    white-space: nowrap; /* Mencegah teks wrap di sel tabel */
+  }
+
+  .room-info-table th,
+  .room-info-table td,
+  .admin-table th,
+  .admin-table td,
+  .booking-history-table th,
+  .booking-history-table td {
+    white-space: nowrap; /* Pastikan konten sel tidak wrap */
+    padding: var(--spacing-sm); /* Kurangi padding sel tabel */
+  }
+
+  .facility-badge {
+    font-size: 0.8rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .section-title {
+    /* Judul seksi umum */
+    font-size: 1.1rem;
+  }
+
+  .page-title {
+    /* Judul halaman utama */
+    font-size: 1.5rem;
+  }
+
+  .empty-state {
+    padding: var(--spacing-md);
+  }
+
+  .empty-state i {
+    font-size: 1.5rem;
+  }
+
+  .form-control {
+    padding: 0.6rem 0.8rem; /* Kurangi padding form control */
+    font-size: 0.9rem;
+  }
+  select.form-control {
+    padding-right: 2rem; /* Sesuaikan padding untuk arrow */
+    background-size: 14px;
+  }
+  .facility-checkboxes {
+    grid-template-columns: 1fr; /* Checkbox fasilitas menjadi satu kolom */
+  }
+  .form-buttons {
+    flex-direction: column; /* Tombol form menjadi stack */
+    gap: 0.5rem;
+  }
+  .btn {
+    width: 100%; /* Tombol mengambil lebar penuh */
+  }
+}

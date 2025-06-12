@@ -1,0 +1,439 @@
+/* ==========================================================================
+   Admin Panel CSS
+   Project: Hotel Booking System
+   Version: 1.0.0
+   ========================================================================== */
+
+/* Table of Contents
+   1. Variables
+   2. Base Styles
+   3. Layout Components
+   4. Common Components
+   5. Dashboard Components
+   6. Room Detail Styles
+   7. Tables
+   8. Sidebar
+   9. Footer
+   10. Animations
+   11. Responsive Design
+   ========================================================================== */
+
+/* 1. Variables
+   ========================================================================== */
+:root {
+  --admin-primary: #7b1fa2;
+  --admin-secondary: #9c27b0;
+  --admin-accent: #e040fb;
+  --admin-bg: #1a1a2e;
+  --admin-bg-dark: #121225;
+  --admin-light: #f2f2f2;
+  --admin-medium: #b8b8d0;
+  --admin-dark: #4a4a6a;
+  --admin-success: #4caf50;
+  --admin-error: #f44336;
+  --admin-warning: #ffc107;
+  --admin-info: #2196f3;
+  --admin-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* 2. Base Styles
+   ========================================================================== */
+body.admin {
+  background: var(--admin-bg);
+  color: var(--admin-light);
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. Layout Components
+   ========================================================================== */
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+  background: var(--admin-bg-dark);
+}
+
+.admin-content {
+  flex: 1;
+  padding: var(--spacing-xl);
+  background: var(--admin-bg);
+}
+
+/* Navigation */
+.admin-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--admin-bg-dark);
+  padding: var(--spacing-md) var(--spacing-xl);
+  box-shadow: 0 2px 8px var(--admin-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--admin-accent);
+  gap: var(--spacing-sm);
+}
+
+/* 4. Common Components
+   ========================================================================== */
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  transition: all var(--transition-normal);
+}
+
+.btn i {
+  font-size: 0.9em;
+}
+
+.btn-primary {
+  background: var(--admin-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--admin-secondary);
+  transform: translateY(-1px);
+}
+
+.btn-warning {
+  background: var(--admin-warning);
+  color: #333;
+}
+
+.btn-warning:hover {
+  background: #e5a100;
+  transform: translateY(-1px);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.badge i {
+  font-size: 0.8em;
+}
+
+.badge-pending {
+  background: var(--admin-warning);
+  color: #333;
+}
+
+.badge-confirmed {
+  background: var(--admin-success);
+  color: #fff;
+}
+
+.badge-cancelled {
+  background: var(--admin-error);
+  color: #fff;
+}
+
+.badge-completed {
+  background: var(--admin-info);
+  color: #fff;
+}
+
+/* 5. Room Detail Styles
+   ========================================================================== */
+.room-detail-section {
+  background: var(--admin-bg-dark);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  box-shadow: 0 2px 8px var(--admin-shadow);
+  display: flex;
+  gap: var(--spacing-xl);
+  flex-wrap: wrap;
+  animation: fadeIn var(--transition-normal);
+}
+
+.room-detail-section:hover {
+  box-shadow: 0 4px 12px var(--admin-shadow);
+}
+
+.room-detail-section > div {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Gallery */
+.room-gallery {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-lg);
+}
+
+.room-gallery img {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--admin-dark);
+  transition: transform var(--transition-fast);
+}
+
+.room-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px var(--admin-shadow);
+}
+
+/* Room Info */
+.room-info {
+  flex: 2;
+}
+
+.room-info-table {
+  width: 100%;
+  margin-bottom: var(--spacing-lg);
+  background: var(--admin-bg);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 1px 4px var(--admin-shadow);
+}
+
+.room-info-table th {
+  background: var(--admin-primary);
+  color: #fff;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-weight: 500;
+  min-width: 150px;
+}
+
+.room-info-table td {
+  padding: var(--spacing-md) var(--spacing-lg);
+  color: var(--admin-light);
+}
+
+/* Facilities */
+.facilities-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-md) 0;
+}
+
+.facility-badge {
+  background: var(--admin-info);
+  color: #fff;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  transition: all var(--transition-normal);
+  cursor: default;
+  animation: slideInUp var(--transition-normal);
+}
+
+.facility-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--admin-shadow);
+  background: var(--admin-accent);
+}
+
+.facility-badge i {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+/* Booking History Table */
+.booking-history-table {
+  width: 100%;
+  margin-top: var(--spacing-md);
+  background: var(--admin-bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.booking-history-table th {
+  background: var(--admin-primary);
+  padding: var(--spacing-md);
+  color: #fff;
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.booking-history-table th i {
+  margin-right: var(--spacing-xs);
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+.booking-history-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--admin-dark);
+  vertical-align: middle;
+}
+
+.booking-history-table td:first-child {
+  font-weight: 500;
+  color: var(--admin-accent);
+}
+
+.booking-history-table tr:last-child td {
+  border-bottom: none;
+}
+
+.booking-history-table tr:hover {
+  background: var(--admin-bg-dark);
+}
+
+/* Section Titles */
+.section-title {
+  color: var(--admin-light);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.section-title i {
+  color: var(--admin-accent);
+  transition: transform var(--transition-normal);
+}
+
+.section-title:hover i {
+  transform: scale(1.2);
+}
+
+/* Empty States */
+.empty-state {
+  color: var(--admin-medium);
+  font-style: italic;
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: var(--admin-bg);
+  border-radius: var(--radius-sm);
+  margin: var(--spacing-md) 0;
+}
+
+.empty-state i {
+  font-size: 2rem;
+  color: var(--admin-dark);
+  margin-bottom: var(--spacing-md);
+  display: block;
+}
+
+/* 10. Animations
+    ========================================================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 11. Responsive Design
+    ========================================================================== */
+@media (max-width: 1100px) {
+  .admin-content {
+    padding: var(--spacing-md);
+  }
+
+  .room-detail-section {
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .room-detail-section {
+    padding: var(--spacing-md);
+  }
+
+  .room-gallery {
+    justify-content: center;
+  }
+
+  .room-info-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .room-info-table th,
+  .room-info-table td {
+    white-space: nowrap;
+  }
+
+  .booking-history-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .facility-badge {
+    font-size: 0.8rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+  }
+
+  .empty-state {
+    padding: var(--spacing-md);
+  }
+
+  .empty-state i {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,211 @@
+/* input.css */
+@import "tailwindcss";
+
+/* 1. Definisi Variabel Warna dan Font (Tema) */
+@theme {
+  --color-primary: #7b1fa2;
+  --color-secondary: #9c27b0;
+  --color-accent: #e040fb;
+  --color-light-accent: #ce93d8;
+  --color-dark-bg: #1a1a2e;
+  --color-darker-bg: #121225;
+  --color-light-text: #f2f2f2;
+  --color-medium-text: #b8b8d0;
+  --color-dark-text: #4a4a6a;
+  --color-success: #4caf50;
+  --color-error: #f44336;
+  --color-warning: #ffc107;
+  --color-info: #2196f3;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Font Family */
+  --font-sans: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 2. Gaya Dasar untuk Elemen Global (Base Layer) */
+@layer base {
+  body {
+    @apply font-sans bg-dark-bg text-light-text min-h-screen flex flex-col;
+  }
+  a {
+    @apply text-light-accent no-underline transition-colors duration-300 ease-in-out;
+  }
+  a:hover {
+    @apply text-accent;
+  }
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold mb-4 text-light-text;
+  }
+  ul {
+    @apply list-none p-0 m-0;
+  }
+  img {
+    @apply max-w-full h-auto;
+  }
+  label {
+    @apply block mb-2 text-medium-text font-medium;
+  } /* Label dijadikan base style */
+  input,
+  textarea,
+  select {
+    /* Menambahkan base style untuk input agar konsisten */
+    @apply w-full p-3 rounded-md border border-dark-text bg-dark-bg text-light-text text-base focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/50;
+  }
+  /* Menambahkan style untuk input file yang sedikit berbeda */
+  input[type="file"] {
+    @apply p-0 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary/20 file:text-light-accent hover:file:bg-primary/30;
+  }
+}
+
+/* 3. Komponen yang Dapat Digunakan Kembali (Components Layer) */
+@layer components {
+  /* Container umum */
+  .container {
+    @apply w-11/12 max-w-[1200px] mx-auto px-4;
+  }
+
+  /* Kelas .active untuk link navigasi */
+  .active {
+    @apply text-accent font-semibold;
+  }
+
+  /* Kelas .active untuk link navigasi di sidebar profil */
+  .activeSidebar {
+    @apply bg-primary text-light-text font-semibold;
+  }
+
+  /* Judul Seksi */
+  .section-title {
+    @apply text-center mb-10;
+  }
+  .section-title h2 {
+    @apply relative inline-block pb-2 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-accent;
+  }
+
+  /* Komponen Tombol (Button) */
+  .btn {
+    @apply inline-block px-6 py-3 rounded-md border-none cursor-pointer text-base font-medium text-center transition-all duration-300 ease-in-out;
+  }
+  .btn-primary {
+    @apply bg-primary text-light-text;
+  }
+  .btn-primary:hover {
+    @apply bg-secondary shadow-[0_4px_8px_var(--color-shadow)] -translate-y-0.5;
+  }
+  .btn-secondary {
+    @apply bg-transparent text-primary border-2 border-primary;
+  }
+  .btn-secondary:hover {
+    @apply bg-primary text-light-text shadow-[0_4px_8px_var(--color-shadow)] -translate-y-0.5;
+  }
+  .btn-danger {
+    @apply bg-error text-light-text;
+  }
+  .btn-danger:hover {
+    @apply bg-[#d32f2f] shadow-[0_4px_8px_var(--color-shadow)] -translate-y-0.5;
+  }
+  .btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+  .btn-success {
+    @apply bg-success text-light-text;
+  }
+  .btn-success:hover {
+    @apply bg-green-600 shadow-[0_4px_8px_var(--color-shadow)] -translate-y-0.5;
+  }
+
+  /* Komponen Form */
+  .form-group {
+    @apply mb-4;
+  }
+  .form-label {
+    @apply block mb-2 text-medium-text font-medium;
+  }
+  .form-control {
+    @apply w-full p-3 rounded-md border border-dark-text bg-dark-bg text-light-text text-base focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/50;
+  }
+
+  /* Komponen Alert untuk flash message */
+  .alert {
+    @apply p-4 mb-4 rounded-lg border-l-4;
+  }
+  .alert-success {
+    @apply bg-success/20 text-success border-success;
+  }
+  .alert-danger {
+    @apply bg-error/20 text-error border-error;
+  }
+  .alert-info {
+    @apply bg-info/20 text-info border-info;
+  }
+  .alert-warning {
+    @apply bg-warning/20 text-warning border-warning;
+  }
+
+  /* Kartu Umum (misal: room card, about card) */
+  .card {
+    @apply bg-darker-bg rounded-lg shadow-lg overflow-hidden;
+  }
+
+  /* Status Booking */
+  .status {
+    @apply px-3 py-1 text-xs font-semibold rounded-full;
+  }
+  .status-pending {
+    @apply bg-warning/20 text-warning;
+  }
+  .status-confirmed,
+  .status-completed {
+    @apply bg-success/20 text-success;
+  }
+  .status-cancelled {
+    @apply bg-error/20 text-error;
+  }
+
+  /* Responsiveness for Navbar */
+  .admin-navbar {
+    @apply flex flex-wrap justify-between items-center px-4 py-3 shadow-md;
+  }
+
+  .sidebar {
+    @apply w-80 md:w-60 lg:w-56;
+  }
+
+  /* Mobile-specific styling */
+  @media (max-width: 768px) {
+    .admin-container {
+      @apply flex-col;
+    }
+
+    .admin-sidebar {
+      @apply w-full fixed bottom-0 left-0 right-0 bg-dark-bg z-50;
+    }
+
+    .admin-main-content {
+      @apply ml-0 pt-16; /* Avoid overlapping with the navbar */
+    }
+  }
+}
+
+@layer utilities {
+  .show {
+    display: block !important;
+  }
+}

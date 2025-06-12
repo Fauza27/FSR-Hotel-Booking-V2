@@ -1,0 +1,1018 @@
+/* 1. Mendefinisikan variabel warna utama untuk tema gelap */
+:root {
+  /* Skema warna - tema ungu gelap */
+  --primary-color: #7b1fa2; /* Ungu Tua */
+  --secondary-color: #9c27b0; /* Ungu */
+  --accent-color: #e040fb; /* Aksen Ungu */
+  --light-accent: #ce93d8; /* Ungu Muda */
+  --dark-bg: #1a1a2e; /* Latar belakang biru-ungu gelap */
+  --darker-bg: #121225; /* Latar belakang biru-ungu lebih gelap */
+  --light-text: #f2f2f2; /* Teks putih kekuningan */
+  --medium-text: #b8b8d0; /* Abu-abu ungu muda */
+  --dark-text: #4a4a6a; /* Abu-abu ungu tua */
+  --success-color: #4caf50; /* Hijau */
+  --error-color: #f44336; /* Merah */
+  --warning-color: #ffc107; /* Amber */
+  --info-color: #2196f3; /* Biru */
+  --shadow-color: rgba(0, 0, 0, 0.3); /* Bayangan dengan transparansi */
+  --gradient-start: #7b1fa2; /* Ungu Tua (Awal gradien) */
+  --gradient-end: #4a148c; /* Ungu Lebih Gelap (Akhir gradien) */
+}
+
+/* 2. Gaya dasar untuk elemen umum */
+* {
+  margin: 0; /* Menghilangkan margin default dari semua elemen */
+  padding: 0; /* Menghilangkan padding default dari semua elemen */
+  box-sizing: border-box; /* Mengatur box-sizing untuk mempermudah pengaturan layout */
+}
+
+/* 3. Gaya untuk body (tubuh halaman) */
+body {
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Menentukan jenis font */
+  line-height: 1.6; /* Mengatur jarak antar baris untuk teks */
+  background-color: var(--dark-bg); /* Menggunakan warna latar belakang gelap yang telah didefinisikan */
+  color: var(--light-text); /* Menggunakan warna teks terang */
+  min-height: 100vh; /* Memastikan tinggi halaman setidaknya 100% dari tinggi viewport */
+  display: flex; /* Menggunakan Flexbox untuk layout */
+  flex-direction: column; /* Menyusun elemen secara vertikal */
+}
+
+/* 4. Gaya untuk tautan (link) */
+a {
+  text-decoration: none; /* Menghilangkan garis bawah dari tautan */
+  color: var(--light-accent); /* Mengatur warna tautan menggunakan warna aksen terang */
+  transition: all 0.3s ease; /* Menambahkan transisi halus untuk semua perubahan */
+}
+
+a:hover {
+  color: var(--accent-color); /* Mengubah warna saat tautan disorot (hover) */
+}
+
+/* 5. Gaya untuk judul (h1, h2, h3, h4, h5, h6) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600; /* Menentukan ketebalan font */
+  margin-bottom: 1rem; /* Menambahkan jarak bawah untuk setiap judul */
+  color: var(--light-text); /* Mengatur warna teks judul */
+}
+
+/* 6. Gaya untuk elemen list (ul) */
+ul {
+  list-style-type: none; /* Menghilangkan gaya default daftar (bullets) */
+}
+
+/* 7. Gaya untuk gambar (img) */
+img {
+  max-width: 100%; /* Membuat gambar tidak melebihi lebar kontainer */
+  height: auto; /* Menjaga aspek rasio gambar tetap utuh */
+}
+
+/* 8. Container umum */
+.container {
+  width: 90%; /* Mengatur lebar kontainer menjadi 90% dari lebar halaman */
+  max-width: 1200px; /* Membatasi lebar maksimal kontainer */
+  margin: 0 auto; /* Memusatkan kontainer */
+  padding: 1rem; /* Memberikan padding di dalam kontainer */
+}
+
+/* 9. Header halaman */
+header {
+  background-color: var(--darker-bg); /* Latar belakang header dengan warna lebih gelap */
+  box-shadow: 0 2px 5px var(--shadow-color); /* Menambahkan bayangan pada header */
+  position: sticky; /* Membuat header tetap berada di atas saat scroll */
+  top: 0; /* Mengatur header agar berada di atas */
+  z-index: 100; /* Mengatur urutan tumpukan agar header tetap di atas elemen lain */
+}
+
+/* 10. Gaya untuk navbar (menu navigasi) */
+.navbar {
+  display: flex; /* Menggunakan Flexbox untuk navbar */
+  justify-content: space-between; /* Menyebar elemen ke kiri dan kanan */
+  align-items: center; /* Menyelaraskan elemen secara vertikal */
+  padding: 1rem 0; /* Memberikan padding vertikal pada navbar */
+}
+
+/* 11. Gaya untuk logo */
+.logo {
+  font-size: 1.8rem; /* Ukuran font untuk logo */
+  font-weight: 700; /* Menebalkan font logo */
+  color: var(--accent-color); /* Mengatur warna logo */
+}
+
+.logo span {
+  color: var(--light-text); /* Mengatur warna untuk bagian tertentu dari logo */
+}
+
+/* 12. Gaya untuk tautan navigasi */
+.nav-links {
+  display: flex; /* Menggunakan Flexbox untuk daftar tautan */
+  align-items: center; /* Menyelaraskan item secara vertikal */
+}
+
+.nav-links li {
+  margin-left: 2rem; /* Memberikan jarak antar item menu */
+}
+
+.nav-links a {
+  color: var(--medium-text); /* Mengatur warna teks tautan */
+  font-weight: 500; /* Menetapkan ketebalan font */
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent-color); /* Mengubah warna tautan saat hover atau aktif */
+}
+
+/* 13. Gaya untuk tombol menu (untuk responsif) */
+.menu-toggle {
+  display: none; /* Menyembunyikan tombol menu pada layar besar */
+  cursor: pointer; /* Menampilkan kursor pointer saat di-hover */
+  font-size: 1.5rem; /* Ukuran font untuk tombol menu */
+}
+
+/* 14. Gaya untuk tombol (btn) */
+.btn {
+  display: inline-block; /* Menyusun tombol dalam baris */
+  padding: 0.8rem 1.5rem; /* Memberikan padding tombol */
+  border-radius: 4px; /* Membuat sudut tombol membulat */
+  border: none; /* Menghilangkan border */
+  cursor: pointer; /* Menampilkan kursor pointer saat di-hover */
+  font-size: 1rem; /* Ukuran font tombol */
+  font-weight: 500; /* Menetapkan ketebalan font */
+  text-align: center; /* Menyelaraskan teks tombol ke tengah */
+  transition: all 0.3s ease; /* Menambahkan efek transisi saat ada perubahan */
+}
+
+/* 15. Gaya untuk tombol utama (btn-primary) */
+.btn-primary {
+  background-color: var(--primary-color); /* Latar belakang tombol dengan warna utama */
+  color: var(--light-text); /* Teks tombol berwarna terang */
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color); /* Mengubah latar belakang tombol saat hover */
+  transform: translateY(-2px); /* Efek angkat tombol sedikit */
+  box-shadow: 0 4px 8px var(--shadow-color); /* Menambahkan bayangan saat hover */
+}
+
+/* 16. Gaya untuk tombol sekunder (btn-secondary) */
+.btn-secondary {
+  background-color: transparent; /* Latar belakang transparan */
+  color: var(--primary-color); /* Teks tombol berwarna utama */
+  border: 2px solid var(--primary-color); /* Memberikan border dengan warna utama */
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-color); /* Mengubah latar belakang tombol saat hover */
+  color: var(--light-text); /* Mengubah teks tombol saat hover */
+  transform: translateY(-2px); /* Efek angkat tombol sedikit */
+  box-shadow: 0 4px 8px var(--shadow-color); /* Menambahkan bayangan saat hover */
+}
+
+/* 17. Gaya untuk tombol bahaya (btn-danger) */
+.btn-danger {
+  background-color: var(--error-color); /* Latar belakang merah untuk tombol bahaya */
+  color: var(--light-text); /* Teks tombol berwarna terang */
+}
+
+.btn-danger:hover {
+  background-color: #d32f2f; /* Mengubah latar belakang saat hover */
+  transform: translateY(-2px); /* Efek angkat tombol sedikit */
+  box-shadow: 0 4px 8px var(--shadow-color); /* Menambahkan bayangan saat hover */
+}
+
+/* 18. Gaya untuk tombol block-level (btn-block) */
+.btn-block {
+  display: block; /* Mengatur tombol menjadi elemen blok */
+  width: 100%; /* Memastikan tombol mengisi lebar penuh kontainer */
+}
+
+/* 19. Gaya untuk hero section (bagian utama dengan gambar latar) */
+.hero {
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end)), url("../images/hero-bg.jpg"); /* Gradien dan gambar latar */
+  background-size: cover; /* Menyesuaikan gambar latar agar menutupi area */
+  background-position: center; /* Memusatkan gambar latar */
+  background-blend-mode: overlay; /* Membaurkan gambar latar dengan gradien */
+  padding: 4rem 0; /* Padding untuk ruang bagian hero */
+  text-align: center; /* Menyelaraskan teks ke tengah */
+  margin-bottom: 3rem; /* Menambahkan jarak bawah */
+}
+
+/* 20. Gaya untuk konten hero */
+.hero-content {
+  max-width: 800px; /* Membatasi lebar maksimum konten */
+  margin: 0 auto; /* Memusatkan konten */
+}
+
+.hero h1 {
+  font-size: 3rem; /* Ukuran font besar untuk judul hero */
+  margin-bottom: 1.5rem; /* Memberikan jarak bawah */
+  color: var(--light-text); /* Warna teks terang */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Memberikan efek bayangan pada teks */
+}
+
+.hero p {
+  font-size: 1.2rem; /* Ukuran font untuk paragraf */
+  margin-bottom: 2rem; /* Memberikan jarak bawah */
+  color: var(--medium-text); /* Mengatur warna teks */
+}
+
+/* 21. Gaya untuk formulir pencarian */
+.search-form {
+  background-color: var(--darker-bg); /* Latar belakang gelap untuk form */
+  padding: 1.5rem; /* Memberikan padding pada form */
+  border-radius: 8px; /* Membuat sudut form membulat */
+  box-shadow: 0 4px 12px var(--shadow-color); /* Menambahkan bayangan */
+  margin-bottom: 2rem; /* Menambahkan jarak bawah */
+}
+
+/* 22. Gaya untuk input pencarian */
+.search-inputs {
+  display: flex; /* Menggunakan Flexbox */
+  flex-wrap: wrap; /* Memungkinkan pembungkus input */
+  gap: 1rem; /* Menambahkan jarak antar input */
+  margin-bottom: 1rem; /* Menambahkan jarak bawah */
+}
+
+/* 23. Gaya untuk grup formulir */
+.form-group {
+  flex: 1; /* Membuat elemen grup form fleksibel */
+  min-width: 200px; /* Membatasi lebar minimum */
+}
+
+/* 24. Gaya untuk label formulir */
+.form-group label {
+  display: block; /* Menjadikan label elemen blok */
+  margin-bottom: 0.5rem; /* Memberikan jarak bawah */
+  color: var(--medium-text); /* Mengatur warna label */
+  font-weight: 500; /* Menetapkan ketebalan font */
+}
+
+/* 25. Gaya untuk input form */
+.form-control {
+  width: 100%; /* Membuat input mengisi lebar penuh */
+  padding: 0.8rem; /* Padding pada input */
+  border: 1px solid var(--dark-text); /* Border dengan warna gelap */
+  border-radius: 4px; /* Membulatkan sudut input */
+  background-color: var(--dark-bg); /* Latar belakang input dengan warna gelap */
+  color: var(--light-text); /* Teks input dengan warna terang */
+  font-size: 1rem; /* Ukuran font untuk input */
+}
+
+/* 26. Gaya untuk input form yang difokuskan */
+.form-control:focus {
+  outline: none; /* Menghilangkan outline saat fokus */
+  border-color: var(--accent-color); /* Mengubah warna border saat fokus */
+  box-shadow: 0 0 0 3px rgba(224, 64, 251, 0.3); /* Menambahkan efek bayangan saat fokus */
+}
+
+/* 27. Gaya untuk bagian kamar (rooms-section) */
+.rooms-section {
+  padding: 3rem 0; /* Memberikan padding atas dan bawah pada bagian kamar */
+}
+
+.section-title {
+  text-align: center; /* Menyelaraskan judul ke tengah */
+  margin-bottom: 2.5rem; /* Menambahkan jarak bawah */
+}
+
+/* 28. Gaya untuk judul kamar */
+.section-title h2 {
+  font-size: 2.2rem; /* Ukuran font untuk judul */
+  position: relative; /* Mengatur posisi relatif untuk elemen */
+  display: inline-block; /* Menyusun judul dalam satu baris */
+  padding-bottom: 0.5rem; /* Memberikan padding bawah */
+}
+
+.section-title h2::after {
+  content: ""; /* Menghasilkan konten kosong */
+  position: absolute; /* Mengatur posisi absolut untuk elemen */
+  bottom: 0; /* Menempatkan elemen di bawah judul */
+  left: 50%; /* Memposisikan elemen di tengah */
+  transform: translateX(-50%); /* Menyesuaikan posisi agar tepat di tengah */
+  width: 80px; /* Lebar garis */
+  height: 3px; /* Ketebalan garis */
+  background-color: var(--accent-color); /* Mengatur warna garis */
+}
+
+/* ... (CSS Anda yang sudah ada) ... */
+
+/* Tambahan untuk Owner Card di Halaman About Us */
+
+/* 29. Gaya untuk grid kamar */
+.rooms-grid {
+  display: grid; /* Menggunakan grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Membuat kolom dengan ukuran dinamis */
+  gap: 2rem; /* Memberikan jarak antar elemen */
+}
+
+/* 30. Gaya untuk kartu kamar */
+.room-card {
+  background-color: var(--darker-bg); /* Latar belakang kartu kamar */
+  border-radius: 8px; /* Sudut kartu membulat */
+  overflow: hidden; /* Menyembunyikan elemen yang keluar dari batas kartu */
+  box-shadow: 0 4px 10px var(--shadow-color); /* Menambahkan bayangan pada kartu */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi saat hover */
+}
+
+.room-card:hover {
+  transform: translateY(-10px); /* Efek angkat kartu saat hover */
+  box-shadow: 0 8px 20px var(--shadow-color); /* Mengubah bayangan saat hover */
+}
+
+/* 31. Gaya untuk gambar kamar */
+.room-img {
+  height: 200px; /* Menentukan tinggi gambar */
+  overflow: hidden; /* Menyembunyikan gambar yang keluar dari batas */
+  position: relative; /* Posisi relatif untuk elemen di dalamnya */
+}
+
+.room-img img {
+  width: 100%; /* Gambar mengisi lebar kontainer */
+  height: 100%; /* Gambar mengisi tinggi kontainer */
+  object-fit: cover; /* Memastikan gambar menutupi area tanpa merusak aspek rasio */
+  transition: transform 0.5s ease; /* Transisi saat gambar di-hover */
+}
+
+.room-card:hover .room-img img {
+  transform: scale(1.1); /* Membuat gambar sedikit lebih besar saat hover pada kartu */
+}
+
+/* 32. Gaya untuk kategori kamar */
+.room-category {
+  position: absolute; /* Menempatkan kategori di posisi absolut di sudut atas kanan */
+  top: 10px; /* Menentukan jarak dari atas */
+  right: 10px; /* Menentukan jarak dari kanan */
+  background-color: var(--accent-color); /* Latar belakang dengan warna aksen */
+  color: var(--light-text); /* Teks kategori dengan warna terang */
+  font-size: 0.8rem; /* Ukuran font lebih kecil */
+  padding: 0.2rem 0.8rem; /* Padding untuk kategori */
+  border-radius: 20px; /* Sudut kategori membulat */
+}
+
+/* 33. Gaya untuk info kamar */
+.room-info {
+  padding: 1.5rem; /* Memberikan padding pada info kamar */
+}
+
+/* 34. Gaya untuk judul kamar */
+.room-title {
+  font-size: 1.3rem; /* Ukuran font untuk judul kamar */
+  margin-bottom: 0.5rem; /* Memberikan jarak bawah pada judul */
+}
+
+/* 35. Gaya untuk detail kamar */
+.room-details {
+  display: flex; /* Menggunakan Flexbox untuk menata detail kamar */
+  justify-content: space-between; /* Menyebar elemen ke kiri dan kanan */
+  margin-bottom: 1rem; /* Menambahkan jarak bawah */
+  color: var(--medium-text); /* Warna teks abu-abu */
+  font-size: 0.9rem; /* Ukuran font lebih kecil */
+}
+
+/* 36. Gaya untuk harga kamar */
+.room-price {
+  font-size: 1.4rem; /* Ukuran font lebih besar untuk harga */
+  font-weight: 600; /* Ketebalan font lebih tebal */
+  color: var(--light-accent); /* Warna harga dengan aksen terang */
+  margin-bottom: 1rem; /* Menambahkan jarak bawah */
+}
+
+.room-price span {
+  font-size: 0.9rem; /* Ukuran font lebih kecil untuk sub-harga */
+  font-weight: 400; /* Ketebalan font lebih tipis */
+  color: var(--medium-text); /* Warna teks lebih gelap */
+}
+
+/* 37. Gaya untuk footer kartu kamar */
+.room-footer {
+  display: flex; /* Menggunakan Flexbox untuk footer */
+  justify-content: space-between; /* Menyebar elemen kiri dan kanan */
+  align-items: center; /* Menyelaraskan elemen secara vertikal */
+}
+
+/* 38. Gaya untuk rating kamar */
+.rating {
+  display: flex; /* Menggunakan Flexbox untuk rating */
+  align-items: center; /* Menyelaraskan elemen rating secara vertikal */
+  color: var(--warning-color); /* Mengatur warna rating dengan warna amber */
+}
+
+.rating span {
+  margin-left: 0.3rem; /* Memberikan jarak antar elemen rating */
+  color: var(--medium-text); /* Warna teks rating lebih gelap */
+}
+
+/* 1. Halaman detail kamar */
+.room-detail {
+  display: grid; /* Menggunakan grid layout untuk tata letak */
+  grid-template-columns: 1fr 350px; /* Membagi kolom menjadi dua: kolom pertama fleksibel, kolom kedua 350px */
+  gap: 2rem; /* Menambahkan jarak antar elemen grid */
+  margin-bottom: 3rem; /* Memberikan margin bawah pada seluruh bagian */
+}
+
+/* 2. Galeri gambar kamar */
+.room-gallery {
+  margin-bottom: 2rem; /* Memberikan jarak bawah untuk galeri gambar */
+}
+
+/* 3. Gambar utama kamar */
+.main-image {
+  width: 100%; /* Mengatur gambar agar memenuhi lebar kontainer */
+  height: 400px; /* Menentukan tinggi gambar */
+  overflow: hidden; /* Menyembunyikan bagian gambar yang keluar dari area */
+  border-radius: 8px; /* Membulatkan sudut gambar */
+  margin-bottom: 1rem; /* Memberikan jarak bawah pada gambar utama */
+}
+
+.main-image img {
+  width: 100%; /* Gambar mengambil 100% lebar kontainer */
+  height: 100%; /* Gambar mengisi 100% tinggi kontainer */
+  object-fit: cover; /* Mengatur gambar agar menutupi area dengan menjaga rasio aspek */
+}
+
+/* 4. Thumbnails (gambar kecil) untuk galeri */
+.thumbnails {
+  display: flex; /* Menyusun gambar thumbnail secara horizontal */
+  gap: 0.5rem; /* Menambahkan jarak antar thumbnail */
+}
+
+.thumbnail {
+  width: 80px; /* Menentukan lebar thumbnail */
+  height: 60px; /* Menentukan tinggi thumbnail */
+  border-radius: 4px; /* Membulatkan sudut thumbnail */
+  overflow: hidden; /* Menyembunyikan bagian gambar yang keluar dari thumbnail */
+  cursor: pointer; /* Menampilkan kursor pointer saat thumbnail di-hover */
+  opacity: 0.7; /* Mengatur transparansi thumbnail */
+  transition: opacity 0.3s ease; /* Menambahkan transisi untuk efek perubahan opacity */
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+  opacity: 1; /* Mengubah opacity menjadi 1 saat hover atau thumbnail aktif */
+}
+
+.thumbnail img {
+  width: 100%; /* Gambar di dalam thumbnail mengisi lebar thumbnail */
+  height: 100%; /* Gambar di dalam thumbnail mengisi tinggi thumbnail */
+  object-fit: cover; /* Mengatur gambar agar menutupi thumbnail */
+}
+
+/* 5. Fitur kamar */
+.room-features {
+  margin-bottom: 2rem; /* Memberikan jarak bawah untuk bagian fitur kamar */
+}
+
+.feature-title {
+  font-size: 1.5rem; /* Ukuran font untuk judul fitur */
+  margin-bottom: 1rem; /* Memberikan jarak bawah untuk judul fitur */
+}
+
+.feature-list {
+  display: grid; /* Menggunakan grid untuk menyusun fitur kamar */
+  grid-template-columns: repeat(2, 1fr); /* Membagi grid menjadi dua kolom */
+  gap: 1rem; /* Menambahkan jarak antar item dalam grid */
+}
+
+.feature-item {
+  display: flex; /* Menyusun item fitur dengan Flexbox */
+  align-items: center; /* Menyelaraskan item fitur secara vertikal */
+}
+
+.feature-icon {
+  width: 24px; /* Menentukan ukuran ikon fitur */
+  height: 24px; /* Menentukan ukuran ikon fitur */
+  margin-right: 0.5rem; /* Memberikan jarak kanan pada ikon */
+  color: var(--light-accent); /* Mengatur warna ikon dengan warna aksen terang */
+}
+
+/* 6. Deskripsi kamar */
+.room-description {
+  margin-bottom: 2rem; /* Memberikan jarak bawah pada deskripsi kamar */
+}
+
+/* 7. Sidebar kamar (panel samping) */
+.room-sidebar {
+  background-color: var(--darker-bg); /* Latar belakang sidebar dengan warna gelap */
+  border-radius: 8px; /* Membulatkan sudut sidebar */
+  padding: 1.5rem; /* Memberikan padding pada sidebar */
+  height: fit-content; /* Membuat tinggi sidebar sesuai dengan konten */
+  position: sticky; /* Membuat sidebar tetap berada di tempat saat scroll */
+  top: 100px; /* Menentukan jarak dari atas untuk sticky sidebar */
+}
+
+.sidebar-title {
+  font-size: 1.3rem; /* Ukuran font untuk judul sidebar */
+  margin-bottom: 1.5rem; /* Memberikan jarak bawah pada judul sidebar */
+  text-align: center; /* Menyelaraskan judul ke tengah */
+}
+
+.price-tag {
+  font-size: 2rem; /* Ukuran font untuk harga */
+  color: var(--light-accent); /* Mengatur warna harga dengan warna aksen terang */
+  text-align: center; /* Menyelaraskan harga ke tengah */
+  margin-bottom: 1.5rem; /* Memberikan jarak bawah pada harga */
+}
+
+.price-tag span {
+  font-size: 1rem; /* Ukuran font untuk sub teks harga */
+  color: var(--medium-text); /* Warna teks sub harga lebih gelap */
+}
+
+/* 8. Formulir pemesanan */
+.booking-form label {
+  display: block; /* Menjadikan label elemen blok */
+  margin-bottom: 0.5rem; /* Memberikan jarak bawah pada label */
+  color: var(--medium-text); /* Mengatur warna label */
+}
+
+.booking-form .form-control {
+  margin-bottom: 1rem; /* Memberikan jarak bawah pada input formulir */
+}
+
+/* 9. Total informasi harga */
+.total-info {
+  margin: 1.5rem 0; /* Menambahkan margin atas dan bawah */
+  padding: 1rem; /* Memberikan padding di dalam total-info */
+  background-color: rgba(123, 31, 162, 0.2); /* Warna latar belakang transparan dengan warna ungu */
+  border-radius: 4px; /* Membulatkan sudut total-info */
+}
+
+.total-row {
+  display: flex; /* Menyusun total info dalam baris */
+  justify-content: space-between; /* Menyebarkan elemen ke kiri dan kanan */
+  margin-bottom: 0.5rem; /* Memberikan jarak bawah pada total row */
+}
+
+.total-row.grand-total {
+  margin-top: 0.5rem; /* Menambahkan margin atas */
+  padding-top: 0.5rem; /* Menambahkan padding atas */
+  border-top: 1px solid var(--dark-text); /* Menambahkan garis atas dengan warna gelap */
+  font-weight: 600; /* Menebalkan font untuk grand total */
+  font-size: 1.1rem; /* Menetapkan ukuran font untuk grand total */
+}
+
+/* 10. Formulir otentikasi (login, register) */
+.auth-container {
+  display: flex; /* Menggunakan Flexbox untuk menyusun formulir */
+  justify-content: center; /* Menyelaraskan formulir ke tengah secara horizontal */
+  align-items: center; /* Menyelaraskan formulir ke tengah secara vertikal */
+  min-height: calc(100vh - 150px); /* Mengatur tinggi minimal agar memenuhi layar */
+}
+
+.auth-form {
+  background-color: var(--darker-bg); /* Latar belakang formulir dengan warna gelap */
+  padding: 2rem; /* Memberikan padding pada formulir */
+  border-radius: 8px; /* Membulatkan sudut formulir */
+  box-shadow: 0 8px 20px var(--shadow-color); /* Menambahkan bayangan pada formulir */
+  width: 100%; /* Formulir mengisi 100% lebar kontainer */
+  max-width: 450px; /* Membatasi lebar maksimal formulir */
+}
+
+.auth-title {
+  text-align: center; /* Menyelaraskan judul ke tengah */
+  margin-bottom: 2rem; /* Memberikan jarak bawah pada judul formulir */
+}
+
+.form-switch {
+  text-align: center; /* Menyelaraskan teks ke tengah */
+  margin-top: 1.5rem; /* Menambahkan margin atas */
+}
+
+.auth-form .btn {
+  margin-top: 1.5rem; /* Memberikan margin atas pada tombol dalam formulir */
+}
+
+/* 11. Seksi profil */
+.profile-section {
+  display: grid; /* Menggunakan grid untuk layout profil */
+  grid-template-columns: 250px 1fr; /* Membagi grid menjadi dua kolom: sidebar 250px dan konten fleksibel */
+  gap: 2rem; /* Menambahkan jarak antar elemen dalam grid */
+  margin-bottom: 3rem; /* Memberikan jarak bawah pada bagian profil */
+}
+
+.profile-sidebar {
+  background-color: var(--darker-bg); /* Latar belakang sidebar dengan warna gelap */
+  border-radius: 8px; /* Membulatkan sudut sidebar */
+  padding: 1.5rem; /* Memberikan padding pada sidebar */
+  height: fit-content; /* Membuat tinggi sidebar sesuai dengan konten */
+}
+
+.profile-avatar {
+  width: 120px; /* Menentukan lebar avatar */
+  height: 120px; /* Menentukan tinggi avatar */
+  border-radius: 50%; /* Membuat avatar berbentuk lingkaran */
+  overflow: hidden; /* Menyembunyikan bagian avatar yang keluar */
+  margin: 0 auto 1.5rem; /* Memusatkan avatar dan memberikan jarak bawah */
+  border: 3px solid var(--accent-color); /* Menambahkan border dengan warna aksen */
+}
+
+.profile-avatar img {
+  width: 100%; /* Gambar avatar mengisi lebar avatar */
+  height: 100%; /* Gambar avatar mengisi tinggi avatar */
+  object-fit: cover; /* Memastikan gambar tetap menutupi avatar */
+}
+
+.profile-name {
+  text-align: center; /* Menyelaraskan nama pengguna ke tengah */
+  margin-bottom: 1.5rem; /* Memberikan jarak bawah pada nama */
+}
+
+.profile-menu {
+  margin-bottom: 1rem; /* Memberikan jarak bawah pada menu profil */
+}
+
+.profile-menu a {
+  display: block; /* Menyusun link menu sebagai blok */
+  padding: 0.8rem 1rem; /* Memberikan padding pada link menu */
+  margin-bottom: 0.5rem; /* Memberikan jarak bawah pada link menu */
+  color: var(--medium-text); /* Warna teks menu dengan warna abu-abu */
+  border-radius: 4px; /* Membulatkan sudut link menu */
+  transition: all 0.3s ease; /* Menambahkan transisi halus saat hover */
+}
+
+.profile-menu a:hover,
+.profile-menu a.active {
+  background-color: var(--primary-color); /* Mengubah latar belakang saat hover atau aktif */
+  color: var(--light-text); /* Mengubah warna teks saat hover atau aktif */
+}
+
+.profile-content {
+  background-color: var(--darker-bg); /* Latar belakang konten dengan warna gelap */
+  border-radius: 8px; /* Membulatkan sudut konten */
+  padding: 2rem; /* Memberikan padding pada konten */
+}
+
+/* 12. Riwayat pemesanan */
+.booking-history .booking-card {
+  background-color: var(--dark-bg); /* Latar belakang kartu riwayat pemesanan */
+  border-radius: 8px; /* Membulatkan sudut kartu */
+  padding: 1.5rem; /* Memberikan padding pada kartu */
+  margin-bottom: 1.5rem; /* Memberikan jarak bawah pada kartu */
+  border-left: 4px solid var(--primary-color); /* Memberikan border kiri dengan warna aksen utama */
+}
+
+/* 13. Gaya header pada kartu riwayat pemesanan */
+.booking-card-header {
+  display: flex; /* Menyusun header kartu dengan Flexbox */
+  justify-content: space-between; /* Menyebarkan elemen ke kiri dan kanan */
+  align-items: center; /* Menyelaraskan elemen secara vertikal */
+  margin-bottom: 1rem; /* Memberikan jarak bawah pada header */
+}
+
+.booking-status {
+  padding: 0.4rem 1rem; /* Padding untuk status pemesanan */
+  border-radius: 20px; /* Membulatkan sudut status */
+  font-size: 0.8rem; /* Ukuran font status */
+  font-weight: 500; /* Menetapkan ketebalan font */
+}
+
+.status-pending {
+  background-color: rgba(255, 193, 7, 0.2); /* Latar belakang kuning transparan untuk status pending */
+  color: var(--warning-color); /* Mengatur warna status pending */
+}
+
+.status-confirmed {
+  background-color: rgba(76, 175, 80, 0.2); /* Latar belakang hijau transparan untuk status confirmed */
+  color: var(--success-color); /* Mengatur warna status confirmed */
+}
+
+.status-cancelled {
+  background-color: rgba(244, 67, 54, 0.2); /* Latar belakang merah transparan untuk status cancelled */
+  color: var(--error-color); /* Mengatur warna status cancelled */
+}
+
+.status-completed {
+  background-color: rgba(33, 150, 243, 0.2); /* Latar belakang biru transparan untuk status completed */
+  color: var(--info-color); /* Mengatur warna status completed */
+}
+
+/* 14. Gaya untuk detail pemesanan */
+.booking-details {
+  display: grid; /* Menyusun detail pemesanan dengan grid */
+  grid-template-columns: 1fr 2fr; /* Membagi grid menjadi dua kolom */
+  gap: 1.5rem; /* Menambahkan jarak antar elemen grid */
+}
+
+.booking-room-img {
+  width: 100%; /* Gambar kamar mengisi lebar kontainer */
+  height: 150px; /* Menentukan tinggi gambar kamar */
+  border-radius: 8px; /* Membulatkan sudut gambar kamar */
+  overflow: hidden; /* Menyembunyikan bagian gambar yang keluar dari batas */
+}
+
+.booking-room-img img {
+  width: 100%; /* Gambar mengisi lebar kontainer */
+  height: 100%; /* Gambar mengisi tinggi kontainer */
+  object-fit: cover; /* Mengatur gambar agar menutupi area */
+}
+
+.booking-info {
+  display: grid; /* Menyusun info pemesanan dengan grid */
+  grid-template-columns: repeat(2, 1fr); /* Membagi grid menjadi dua kolom */
+  gap: 1rem; /* Menambahkan jarak antar elemen */
+}
+
+.booking-info-item {
+  margin-bottom: 0.5rem; /* Memberikan jarak bawah pada item info */
+}
+
+.booking-info-item span {
+  display: block; /* Menjadikan teks item sebagai blok */
+  color: var(--medium-text); /* Mengatur warna teks */
+  font-size: 0.9rem; /* Ukuran font lebih kecil */
+}
+
+.booking-card-footer {
+  margin-top: 1rem; /* Memberikan margin atas pada footer kartu */
+  padding-top: 1rem; /* Menambahkan padding atas pada footer */
+  border-top: 1px solid var(--dark-text); /* Memberikan garis atas footer */
+  display: flex; /* Menyusun footer dengan Flexbox */
+  justify-content: space-between; /* Menyebarkan elemen kiri dan kanan */
+  align-items: center; /* Menyelaraskan elemen secara vertikal */
+}
+
+.booking-price {
+  font-size: 1.2rem; /* Ukuran font untuk harga pemesanan */
+  font-weight: 600; /* Menebalkan font harga */
+  color: var(--light-accent); /* Warna harga dengan aksen terang */
+}
+
+/* 15. Gaya footer */
+footer {
+  background-color: var(--darker-bg); /* Latar belakang footer dengan warna gelap */
+  padding: 3rem 0 1rem; /* Memberikan padding atas, bawah */
+  margin-top: auto; /* Mengatur margin atas untuk menempel di bawah konten */
+}
+
+.footer-content {
+  display: grid; /* Menggunakan grid untuk footer */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Membuat kolom footer fleksibel */
+  gap: 2rem; /* Menambahkan jarak antar elemen footer */
+  margin-bottom: 2rem; /* Memberikan jarak bawah pada footer */
+}
+
+.footer-logo {
+  font-size: 1.5rem; /* Ukuran font untuk logo footer */
+  font-weight: 700; /* Menebalkan font logo */
+  color: var(--accent-color); /* Mengatur warna logo dengan warna aksen */
+  margin-bottom: 1rem; /* Memberikan jarak bawah pada logo */
+}
+
+.footer-logo span {
+  color: var(--light-text); /* Warna untuk bagian span dari logo */
+}
+
+.footer-description {
+  color: var(--medium-text); /* Warna deskripsi footer */
+  margin-bottom: 1.5rem; /* Memberikan jarak bawah pada deskripsi */
+}
+
+.footer-title {
+  color: var(--light-text); /* Warna judul footer */
+  font-size: 1.2rem; /* Ukuran font judul footer */
+  margin-bottom: 1.5rem; /* Memberikan jarak bawah pada judul footer */
+  position: relative; /* Menempatkan elemen secara relatif */
+}
+
+.footer-title::after {
+  content: ""; /* Membuat elemen kosong setelah judul */
+  position: absolute; /* Posisi absolut untuk garis */
+  bottom: -0.5rem; /* Mengatur posisi garis ke bawah sedikit */
+  left: 0; /* Mengatur garis berada di kiri */
+  width: 50px; /* Lebar garis */
+  height: 2px; /* Ketebalan garis */
+  background-color: var(--accent-color); /* Mengatur warna garis */
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem; /* Memberikan jarak bawah pada setiap item menu footer */
+}
+
+.footer-links a {
+  color: var(--medium-text); /* Mengatur warna teks menu footer */
+}
+
+.footer-links a:hover {
+  color: var(--accent-color); /* Mengubah warna teks saat hover */
+}
+
+/* 1. Gaya untuk daftar kontak */
+.contact-info li {
+  display: flex; /* Menggunakan Flexbox untuk menyusun elemen dalam daftar */
+  margin-bottom: 1rem; /* Memberikan jarak bawah antar item daftar */
+  color: var(--medium-text); /* Mengatur warna teks dengan warna medium */
+}
+
+/* 2. Gaya untuk ikon kontak */
+.contact-icon {
+  margin-right: 1rem; /* Memberikan jarak kanan pada ikon */
+  color: var(--light-accent); /* Mengatur warna ikon dengan warna aksen terang */
+}
+
+/* 3. Gaya untuk tautan sosial */
+.social-links {
+  display: flex; /* Menyusun tautan sosial secara horizontal */
+  gap: 1rem; /* Menambahkan jarak antar tautan sosial */
+}
+
+.social-links a {
+  display: flex; /* Menyusun elemen dalam tautan dengan Flexbox */
+  justify-content: center; /* Menyelaraskan elemen tautan ke tengah secara horizontal */
+  align-items: center; /* Menyelaraskan elemen tautan ke tengah secara vertikal */
+  width: 40px; /* Menentukan lebar ikon sosial */
+  height: 40px; /* Menentukan tinggi ikon sosial */
+  background-color: var(--dark-bg); /* Latar belakang ikon sosial dengan warna gelap */
+  border-radius: 50%; /* Membuat ikon sosial berbentuk lingkaran */
+  color: var(--light-accent); /* Mengatur warna teks ikon sosial dengan warna aksen terang */
+  transition: all 0.3s ease; /* Menambahkan transisi halus saat terjadi perubahan */
+}
+
+.social-links a:hover {
+  background-color: var(--primary-color); /* Mengubah latar belakang ikon sosial saat hover */
+  color: var(--light-text); /* Mengubah warna teks ikon sosial saat hover */
+  transform: translateY(-3px); /* Memberikan efek angkat pada ikon sosial saat hover */
+}
+
+/* 4. Gaya untuk bagian bawah footer */
+.footer-bottom {
+  text-align: center; /* Menyelaraskan teks footer ke tengah */
+  padding-top: 1.5rem; /* Memberikan padding atas pada footer */
+  border-top: 1px solid var(--dark-text); /* Menambahkan garis atas dengan warna gelap */
+  color: var(--medium-text); /* Warna teks footer dengan warna medium */
+  font-size: 0.9rem; /* Ukuran font untuk teks footer */
+}
+
+/* 5. Utilities - Kelas utilitas untuk pengaturan teks dan margin */
+
+/* Teks tengah */
+.text-center {
+  text-align: center; /* Menyelaraskan teks ke tengah */
+}
+
+/* Teks kanan */
+.text-right {
+  text-align: right; /* Menyelaraskan teks ke kanan */
+}
+
+/* Margin bawah */
+.mb-1 {
+  margin-bottom: 0.5rem; /* Memberikan jarak bawah kecil */
+}
+
+.mb-2 {
+  margin-bottom: 1rem; /* Memberikan jarak bawah sedang */
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem; /* Memberikan jarak bawah lebih besar */
+}
+
+.mb-4 {
+  margin-bottom: 2rem; /* Memberikan jarak bawah terbesar */
+}
+
+/* Margin atas */
+.mt-1 {
+  margin-top: 0.5rem; /* Memberikan jarak atas kecil */
+}
+
+.mt-2 {
+  margin-top: 1rem; /* Memberikan jarak atas sedang */
+}
+
+.mt-3 {
+  margin-top: 1.5rem; /* Memberikan jarak atas lebih besar */
+}
+
+.mt-4 {
+  margin-top: 2rem; /* Memberikan jarak atas terbesar */
+}
+
+/* 6. Gaya untuk pesan peringatan (alert) */
+
+/* Gaya umum untuk alert */
+.alert {
+  padding: 1rem; /* Memberikan padding pada pesan peringatan */
+  border-radius: 4px; /* Membulatkan sudut pesan peringatan */
+  margin-bottom: 1.5rem; /* Memberikan jarak bawah antar alert */
+}
+
+/* Alert sukses (green) */
+.alert-success {
+  background-color: rgba(76, 175, 80, 0.2); /* Latar belakang hijau transparan */
+  color: var(--success-color); /* Warna teks dengan warna sukses */
+  border-left: 4px solid var(--success-color); /* Garis kiri dengan warna sukses */
+}
+
+/* Alert bahaya (red) */
+.alert-danger {
+  background-color: rgba(244, 67, 54, 0.2); /* Latar belakang merah transparan */
+  color: var(--error-color); /* Warna teks dengan warna error */
+  border-left: 4px solid var(--error-color); /* Garis kiri dengan warna error */
+}
+
+/* Alert peringatan (yellow) */
+.alert-warning {
+  background-color: rgba(255, 193, 7, 0.2); /* Latar belakang kuning transparan */
+  color: var(--warning-color); /* Warna teks dengan warna peringatan */
+  border-left: 4px solid var(--warning-color); /* Garis kiri dengan warna peringatan */
+}
+
+/* Alert informasi (blue) */
+.alert-info {
+  background-color: rgba(33, 150, 243, 0.2); /* Latar belakang biru transparan */
+  color: var(--info-color); /* Warna teks dengan warna informasi */
+  border-left: 4px solid var(--info-color); /* Garis kiri dengan warna informasi */
+}
+
+/* 7. Gaya responsif (media queries) */
+
+/* Gaya untuk tampilan layar dengan lebar maksimum 992px */
+@media (max-width: 992px) {
+  .room-detail {
+    grid-template-columns: 1fr; /* Mengubah grid menjadi satu kolom untuk layar kecil */
+  }
+
+  .room-sidebar {
+    position: static; /* Mengubah posisi sidebar agar tidak sticky */
+  }
+
+  .profile-section {
+    grid-template-columns: 1fr; /* Mengubah grid profil menjadi satu kolom */
+  }
+
+  .profile-sidebar {
+    margin-bottom: 2rem; /* Menambahkan margin bawah pada sidebar profil */
+  }
+}
+
+/* Gaya untuk tampilan layar dengan lebar maksimum 768px */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Menyusun navbar secara vertikal */
+    align-items: flex-start; /* Menyelaraskan item navbar ke kiri */
+  }
+
+  .menu-toggle {
+    display: block; /* Menampilkan tombol menu untuk tampilan mobile */
+    position: absolute; /* Menempatkan tombol menu secara absolut */
+    top: 1rem; /* Jarak atas tombol menu */
+    right: 1rem; /* Jarak kanan tombol menu */
+  }
+
+  .nav-links {
+    display: none; /* Menyembunyikan daftar tautan navigasi */
+    width: 100%; /* Membuat nav links lebar penuh */
+    flex-direction: column; /* Menyusun tautan navigasi secara vertikal */
+    margin-top: 1rem; /* Menambahkan margin atas */
+  }
+
+  .nav-links.active {
+    display: flex; /* Menampilkan tautan navigasi saat kelas 'active' ditambahkan */
+  }
+
+  .nav-links li {
+    margin: 0; /* Menghapus margin pada elemen menu */
+    width: 100%; /* Membuat item menu lebar penuh */
+    text-align: center; /* Menyelaraskan teks menu ke tengah */
+  }
+
+  .nav-links a {
+    display: block; /* Membuat tautan menu menjadi blok */
+    padding: 0.8rem 0; /* Padding vertikal pada tautan */
+  }
+
+  .hero h1 {
+    font-size: 2.2rem; /* Mengubah ukuran font judul hero pada layar kecil */
+  }
+
+  .search-inputs {
+    flex-direction: column; /* Menyusun elemen pencarian secara vertikal */
+  }
+
+  .booking-details {
+    grid-template-columns: 1fr; /* Mengubah grid menjadi satu kolom untuk detail pemesanan */
+  }
+}
+
+/* Gaya untuk tampilan layar dengan lebar maksimum 480px */
+@media (max-width: 480px) {
+  .room-features .feature-list {
+    grid-template-columns: 1fr; /* Mengubah grid fitur menjadi satu kolom */
+  }
+
+  .booking-info {
+    grid-template-columns: 1fr; /* Mengubah grid informasi pemesanan menjadi satu kolom */
+  }
+
+  .booking-card-footer {
+    flex-direction: column; /* Menyusun footer kartu pemesanan secara vertikal */
+    align-items: flex-start; /* Menyelaraskan elemen ke kiri */
+    gap: 1rem; /* Menambahkan jarak antar elemen dalam footer */
+  }
+}
